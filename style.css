@@ -1,0 +1,36 @@
+:root {
+  --bg: #f6f3ea; --text: #17150f; --muted: #5f5a4c; --card: #fffdf7; --line: #e2dccb;
+  --gold: #b8955a; --gold-soft: #e6d3a0; --on-gold: #17150f; --error: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b0b0a; --text: #f2ede0; --muted: #a9a394; --card: #171716; --line: #2c2a24; --error: #ff8a80; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+header img { width: 64px; height: 64px; border-radius: 15px; }
+header a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 16px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0; }
+h2 { font-size: 21px; margin: 36px 0 8px; }
+.muted { color: var(--muted); font-size: 15px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.hero { text-align: center; padding: 24px 0 8px; }
+.hero img { width: 120px; height: 120px; border-radius: 28px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.hero h1 { font-size: 40px; margin-top: 20px; }
+.hero p { font-size: 19px; color: var(--muted); margin: 8px auto 0; max-width: 520px; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 36px; }
+.features .card { padding: 18px; }
+.features h3 { margin: 0 0 4px; font-size: 17px; }
+.features p { margin: 0; font-size: 15px; color: var(--muted); }
+.badge { display: inline-block; margin-top: 24px; padding: 12px 22px; border-radius: 12px; background: var(--gold); color: var(--on-gold); font-weight: 600; text-decoration: none; }
+label { display: block; font-size: 15px; font-weight: 600; margin: 0 0 6px; }
+input { width: 100%; font: inherit; padding: 10px 12px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--text); }
+input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+button { width: 100%; font: inherit; font-weight: 600; padding: 12px; border: 0; border-radius: 10px; background: var(--gold); color: var(--on-gold); cursor: pointer; }
+button:disabled { opacity: .6; cursor: default; }
+#message { min-height: 1.6em; margin: 14px 0 0; font-size: 15px; }
+#message.error { color: var(--error); }
+.done { background: var(--gold-soft); color: var(--on-gold); border-radius: 12px; padding: 16px 20px; }
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 16px; }
+a { color: inherit; }

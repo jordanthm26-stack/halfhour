@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<meta name="robots" content="noindex">
+<title>Compte confirmé — HalfHour</title>
+</head>
+<body>
+<main>
+  <header><a href="./"><img src="icon.png" alt=""><div><h1>Compte confirmé</h1><div class="muted">HalfHour</div></div></a></header>
+  <p id="ok" class="done">C'est bon, ton adresse email est confirmée ! Retourne dans HalfHour sur ton iPhone ou ton Mac et connecte-toi avec ton email et ton mot de passe.</p>
+  <p id="ko" class="card" hidden>Ce lien de confirmation n'est plus valable (il a peut-être déjà servi ou il a expiré). Dans HalfHour, essaie de te connecter : si ton adresse n'est pas confirmée, touche « Renvoyer l'email de confirmation ».</p>
+  <footer>
+    <a href="./">Accueil</a>
+    <a href="assistance.html">Assistance</a>
+    <a href="confidentialite.html">Confidentialité</a>
+    <a href="mailto:jordan.thm26@gmail.com">Contact</a>
+  </footer>
+</main>
+<script>
+  // Supabase renvoie ici après le clic sur le lien ; en cas d'échec, l'erreur est dans le fragment ou la requête.
+  const params = new URLSearchParams(location.hash.slice(1) + "&" + location.search.slice(1));
+  if (params.get("error") || params.get("error_code")) {
+    document.getElementById("ok").hidden = true;
+    document.getElementById("ko").hidden = false;
+  }
+  if (location.hash) history.replaceState(null, "", location.pathname);
+</script>
+</body>
+</html>
