@@ -7,11 +7,11 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 <meta name="robots" content="noindex">
-<title>Nouveau mot de passe — HalfHour</title>
+<title>Nouveau mot de passe — Halftik</title>
 </head>
 <body>
 <main style="max-width: 460px">
-  <header><a href="./"><img src="icon.png" alt=""><div><h1>Nouveau mot de passe</h1><div class="muted">Compte HalfHour</div></div></a></header>
+  <header><a href="./"><img src="icon.png" alt=""><div><h1>Nouveau mot de passe</h1><div class="muted">Compte Halftik</div></div></a></header>
 
   <form id="form" class="card" hidden>
     <label for="password">Nouveau mot de passe</label>
@@ -22,13 +22,13 @@
     <p id="message" role="status"></p>
   </form>
 
-  <p id="done" class="done" hidden>C'est fait : ton mot de passe a été changé. Retourne dans HalfHour et connecte-toi avec ce nouveau mot de passe.</p>
+  <p id="done" class="done" hidden>C'est fait : ton mot de passe a été changé. Retourne dans Halftik et connecte-toi avec ce nouveau mot de passe.</p>
   <p id="invalid" class="card" hidden></p>
 
   <p class="muted">Un problème ? Écris à <a href="mailto:jordan.thm26@gmail.com">jordan.thm26@gmail.com</a> · <a href="assistance.html">Assistance</a></p>
 </main>
 <script>
-  // Projet Supabase de HalfHour. La clé « anon » est publique par conception (la même que dans l'app).
+  // Projet Supabase de Halftik. La clé « anon » est publique par conception (la même que dans l'app).
   const SUPABASE_URL = "https://euvbonyqhnnwmkhlasso.supabase.co";
   const ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1dmJvbnlxaG5ud21raGxhc3NvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ3ODQ5MjUsImV4cCI6MjExMDM2MDkyNX0.kQdkRwUYllV8V71m_ie7LTszw20RNhW2XJ4gkGgngOU";
 
@@ -47,8 +47,8 @@
     document.getElementById("password").focus();
   } else {
     invalid.textContent = params.get("error_code") === "otp_expired"
-      ? "Ce lien a expiré. Dans HalfHour, touche à nouveau « Mot de passe oublié ? » pour en recevoir un nouveau."
-      : "Ce lien n'est pas valable. Ouvre le dernier email « mot de passe oublié » reçu, ou demande-en un nouveau depuis HalfHour.";
+      ? "Ce lien a expiré. Dans Halftik, touche à nouveau « Mot de passe oublié ? » pour en recevoir un nouveau."
+      : "Ce lien n'est pas valable. Ouvre le dernier email « mot de passe oublié » reçu, ou demande-en un nouveau depuis Halftik.";
     invalid.hidden = false;
   }
 
@@ -73,7 +73,7 @@
       const code = json.error_code || json.code;
       if (code === "same_password") show("Ce mot de passe est le même que l'ancien, choisis-en un autre.", true);
       else if (code === "weak_password") show("Mot de passe trop faible.", true);
-      else if (res.status === 401 || res.status === 403) show("Ce lien a expiré : demande un nouvel email depuis HalfHour.", true);
+      else if (res.status === 401 || res.status === 403) show("Ce lien a expiré : demande un nouvel email depuis Halftik.", true);
       else show("Erreur (" + res.status + "). Réessaie dans un instant.", true);
     } catch {
       show("Impossible de joindre le serveur. Vérifie ta connexion.", true);
